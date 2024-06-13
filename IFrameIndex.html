@@ -41,6 +41,9 @@
         <div class="chart-item">
             <div id="chart3"></div>
         </div>
+		<div class="chart-item">
+            <div id="donut-chart"></div>
+        </div>
     </div>
     
     <!-- Load d3.js and c3.js -->
@@ -54,9 +57,9 @@
                 x: 'x',
                 columns: [
                     ['x', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO', 'JUNIO', 'JULIO'],
-                    ['%ERR', 0.94, 0.87, 1.28, 0.87, 1.21],
-                    ['TOTALMOV', 9535, 11008, 13054, 18241, 7681, 0],
-                    ['CANTERR', 90, 96, 167, 159, 93, 0]
+                    ['%ERR', 0.94, 0.87, 1.28, 0.87, 1.07],
+                    ['TOTALMOV', 9535, 11008, 13054, 18241, 9370, 0],
+                    ['CANTERR', 90, 96, 167, 159, 100, 0]
                 ],
                 axes: {
                     TOTALMOV: 'y2',
@@ -105,13 +108,13 @@
                 x: 'x',
                 columns: [
                     ['x', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO', 'JUNIO', 'JULIO'],
-                    ['RETENCIONES', 17, 42, 90, 112, 75],
+                    ['RETENCIONES', 17, 42, 90, 112, 82],
                     ['EQUIVALENCIA', 46, 24, 48, 24, 14],
                     ['COMP.USD', 5, 11, 1, 13, 0],
                     ['DOC.DUPLICADO', 8, 14, 10, 3, 4],
                     ['ANULACIONES', 4, 2, 2, 6, 0],
                     ['DIF.DEBE-HABER', 2, 1, 1, 1, 0],
-                    ['MOVERR', 90, 96, 167, 159, 93, 0]
+                    ['MOVERR', 90, 96, 167, 159, 100, 0]
                 ],
                 axes: {
                     MOVERR: 'y2'
@@ -155,9 +158,9 @@
             bindto: '#chart3',
             data: {
                 columns: [
-                    ['LGA', 9535, 11008, 13054, 18241, 8141],
-                    ['CNP', 403, 544, 465, 863, 295],
-                    ['TOTAL', 9938, 11552, 13519, 19104, 8436, 0]
+                    ['LGA', 11488, 12186, 14596, 20979, 10048],
+                    ['CNP', 410, 544, 514, 958, 380],
+                    ['TOTAL', 11898, 12730, 15110, 21937, 10428, 0]
                 ],
                 type: 'bar',
                 groups: [
@@ -181,6 +184,33 @@
                 y: {
                     lines: [{value: 0}]
                 }
+            }
+        });
+		
+		// Gráfico 4: Porcentaje movimiento por tipo interfaz
+		var chart = c3.generate({
+            bindto: '#donut-chart',
+            data: {
+                columns: [
+                    ['FI-ANULACION', 0.35],
+					['FI-CCO-COMPRAS', 2.09],
+					['FI-CCO-VENTAS', 4.04],
+					['FI-HBC-LIQ', 18.72],
+					['FI-HCV-COMPRAS', 13.30],
+					['FI-HCV-VENTAS', 31.25],
+					['FI-HCV-VENTAS-REM', 9.78],
+					['HTE-TCC', 5.80],
+					['MM-ANULACION', 0.08],
+					['MM052', 2.09],
+					['MM056', 12.37],
+					['MM-CONSUMO-GRANOS', 0.12]
+                ],
+                type: 'donut',
+				labels: true
+            },
+            donut: {
+                title: "Tipos de movimientos",
+                
             }
         });
     </script>
