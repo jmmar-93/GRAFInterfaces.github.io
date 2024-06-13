@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent HTML con IFrame</title>
+    <style>
+        body, html {
+            height: 100%; /* Asegurar que el body y el html ocupen toda la altura disponible */
+            margin: 0;
+            padding: 0;
+        }
+        .iframe-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%; /* Ocupar toda la altura disponible */
+            width: 100%; /* Ocupar todo el ancho disponible */
+        }
+        iframe {
+            width: 100%; /* El iframe ocupa todo el ancho del contenedor */
+            height: 100%; /* El iframe ocupa toda la altura del contenedor */
+            border: none; /* Sin borde alrededor del iframe */
+        }
+    </style>
+</head>
+<body>
+    <div class="iframe-container">
+        <iframe src="IFrameIndex.html" frameborder="0"></iframe>
+    </div>
+</body>
+</html>

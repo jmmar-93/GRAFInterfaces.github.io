@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráficos con C3.js</title>
+    <!-- Load c3.css -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .chart-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Dos columnas iguales */
+            gap: 20px; /* Espacio entre los gráficos */
+        }
+        .chart-item {
+            margin-bottom: 20px;
+        }
+        .chart-item h2 {
+            text-align: center;
+            margin: 10px 0;
+        }
+        /* Asegurar que cada gráfico tenga suficiente altura para mostrar todas las barras */
+        .chart-item div {
+            height: 400px; /* Ajustar según sea necesario */
+        }
+    </style>
+</head>
+<body>
+    <!-- Contenedores para cada gráfico -->
+    <div class="chart-container">
+        <div class="chart-item">
+            <div id="chart1"></div>
+        </div>
+        <div class="chart-item">
+            <div id="chart2"></div>
+        </div>
+        <div class="chart-item">
+            <div id="chart3"></div>
+        </div>
+    </div>
+    
+    <!-- Load d3.js and c3.js -->
+    <script src="https://d3js.org/d3.v5.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.min.js"></script>
+    <script>
+        // Gráfico 1: Movimientos y Errores
+        var chart1 = c3.generate({
+            bindto: '#chart1',
+            data: {
+                x: 'x',
+                columns: [
+                    ['x', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO', 'JUNIO', 'JULIO'],
+                    ['%ERR', 0.94, 0.87, 1.28, 0.87, 1.21],
+                    ['TOTALMOV', 9535, 11008, 13054, 18241, 7681, 0],
+                    ['CANTERR', 90, 96, 167, 159, 93, 0]
+                ],
+                axes: {
+                    TOTALMOV: 'y2',
+                    CANTERR: 'y2'
+                },
+                types: {
+                    TOTALMOV: 'bar',
+                    CANTERR: 'bar'
+                },
+                colors: {
+                    TOTALMOV: '#ff7f0e', // Orange
+                    CANTERR: '#2ca02c'  // Green
+                },
+                labels: true
+            },
+            axis: {
+                x: {
+                    type: 'category',
+                    label: {
+                        position: 'outer-center'
+                    }
+                },
+                y: {
+                    label: {
+                        text: 'Porcentaje error',
+                        position: 'outer-middle'
+                    },
+                    tick: {
+                        format: function (d) { return d3.format(".2%")(d / 100); }
+                    }
+                },
+                y2: {
+                    show: true,
+                    label: {
+                        text: 'Movimientos Algoritmo',
+                        position: 'outer-middle'
+                    }
+                }
+            }
+        });
+
+        // Gráfico 2: Tipos de Errores y Movimientos
+        var chart2 = c3.generate({
+            bindto: '#chart2',
+            data: {
+                x: 'x',
+                columns: [
+                    ['x', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO', 'JUNIO', 'JULIO'],
+                    ['RETENCIONES', 17, 42, 90, 112, 75],
+                    ['EQUIVALENCIA', 46, 24, 48, 24, 14],
+                    ['COMP.USD', 5, 11, 1, 13, 0],
+                    ['DOC.DUPLICADO', 8, 14, 10, 3, 4],
+                    ['ANULACIONES', 4, 2, 2, 6, 0],
+                    ['DIF.DEBE-HABER', 2, 1, 1, 1, 0],
+                    ['MOVERR', 90, 96, 167, 159, 93, 0]
+                ],
+                axes: {
+                    MOVERR: 'y2'
+                },
+                types: {
+                    MOVERR: 'bar'
+                },
+                colors: {
+                    MOVERR: '#ff7f0e',
+                    EQUIVALENCIA: '#90907f'
+                },
+                labels: true
+            },
+            axis: {
+                x: {
+                    type: 'category',
+                    label: {
+                        position: 'outer-center'
+                    }
+                },
+                y: {
+                    label: {
+                        text: 'Cantidad errores',
+                        position: 'outer-middle'
+                    },
+                    min: 0,
+                    max: 150
+                },
+                y2: {
+                    show: true,
+                    label: {
+                        text: 'Movimientos Algoritmo',
+                        position: 'outer-middle'
+                    }
+                }
+            }
+        });
+
+        // Gráfico 3: Comparación de Valores Mensuales
+        var chart3 = c3.generate({
+            bindto: '#chart3',
+            data: {
+                columns: [
+                    ['LGA', 9535, 11008, 13054, 18241, 8141],
+                    ['CNP', 403, 544, 465, 863, 295],
+                    ['TOTAL', 9938, 11552, 13519, 19104, 8436, 0]
+                ],
+                type: 'bar',
+                groups: [
+                    ['LGA', 'CNP']
+                ],
+                order: 'desc', // Orden de apilado descendente por suma de valores
+                labels: true
+            },
+            axis: {
+                x: {
+                    type: 'category',
+                    categories: ['FEBRERO', 'MARZO', 'ABRIL', 'MAYO', 'JUNIO', 'JULIO'],
+                    tick: {
+                        rotate: 0,
+                        multiline: false
+                    },
+                    height: 40
+                }
+            },
+            grid: {
+                y: {
+                    lines: [{value: 0}]
+                }
+            }
+        });
+    </script>
+</body>
+</html>
