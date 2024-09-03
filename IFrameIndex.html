@@ -56,10 +56,10 @@
             data: {
                 x: 'x',
                 columns: [
-                    ['x', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO', 'JUNIO', 'JULIO', 'AGOSTO'],
-                    ['%ERR', 0.94, 0.87, 1.28, 0.87, 0.82, 0.54, 0.68],
-                    ['TOTALMOV', 9535, 11008, 13054, 18241, 18579, 16830, 15715],
-                    ['CANTERR', 90, 96, 167, 159, 152, 91, 107]
+                    ['x', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO', 'JUNIO', 'JULIO', 'AGOSTO', 'SEPTIEMBRE'],
+                    ['%ERR', 0.94, 0.87, 1.28, 0.87, 0.82, 0.54, 0.67, 8.98],
+                    ['TOTALMOV', 9535, 11008, 13054, 18241, 18579, 16830, 16427, 668],
+                    ['CANTERR', 90, 96, 167, 159, 152, 91, 110, 60]
                 ],
                 axes: {
                     TOTALMOV: 'y2',
@@ -107,14 +107,14 @@
             data: {
                 x: 'x',
                 columns: [
-                    ['x', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO', 'JUNIO', 'JULIO', 'AGOSTO'],
-                    ['RETENCIONES', 17, 42, 90, 112, 105, 73, 89],
-                    ['EQUIVALENCIA', 46, 24, 48, 24, 26, 11, 10],
-                    ['COMP.USD', 5, 11, 1, 13, 0, 0, 0],
-                    ['DOC.DUPLICADO', 8, 14, 10, 3, 7, 2, 0],
-                    ['ANULACIONES', 4, 2, 2, 6, 5, 2, 1],
-                    ['DIF.DEBE-HABER', 2, 1, 1, 1, 9, 3, 7],
-                    ['MOVERR', 90, 96, 167, 159, 152, 91, 107]
+                    ['x', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO', 'JUNIO', 'JULIO', 'AGOSTO', 'SEPTIEMBRE'],
+                    ['RETENCIONES', 17, 42, 90, 112, 105, 73, 90, 54],
+                    ['EQUIVALENCIA', 46, 24, 48, 24, 26, 11, 13, 5],
+                    ['COMP.USD', 5, 11, 1, 13, 0, 0, 0, 0],
+                    ['DOC.DUPLICADO', 8, 14, 10, 3, 7, 2, 0, 0],
+                    ['ANULACIONES', 4, 2, 2, 6, 5, 2, 1, 0],
+                    ['DIF.DEBE-HABER', 2, 1, 1, 1, 9, 3, 7, 1],
+                    ['MOVERR', 90, 96, 167, 159, 152, 91, 110, 60]
                 ],
                 axes: {
                     MOVERR: 'y2'
@@ -157,9 +157,9 @@
             bindto: '#chart3',
             data: {
                 columns: [
-                    ['LGA', 11488, 12186, 14596, 20979, 20155, 17366, 16714],
-                    ['CNP', 410, 544, 514, 958, 656, 915, 514],
-                    ['TOTAL', 11898, 12730, 15110, 21937, 20811, 18281, 17228]
+                    ['LGA', 11488, 12186, 14596, 20979, 20155, 17366, 17503, 674],
+                    ['CNP', 410, 544, 514, 958, 656, 915, 516, 60],
+                    ['TOTAL', 11898, 12730, 15110, 21937, 20811, 18281, 18019, 734]
                 ],
                 type: 'bar',
                 groups: [
@@ -171,7 +171,7 @@
             axis: {
                 x: {
                     type: 'category',
-                    categories: ['FEBRERO', 'MARZO', 'ABRIL', 'MAYO', 'JUNIO', 'JULIO', 'AGOSTO'],
+                    categories: ['FEBRERO', 'MARZO', 'ABRIL', 'MAYO', 'JUNIO', 'JULIO', 'AGOSTO', 'SEPTIEMBRE'],
                     tick: {
                         rotate: 0,
                         multiline: false
@@ -191,18 +191,18 @@
         bindto: '#donut-chart',
         data: {
         	columns: [
-                    	['FI-ANULACION', 0.52],
-			['FI-CCO-COMPRAS', 2.16],
-			['FI-CCO-VENTAS', 6.04],
-			['FI-HBC-LIQ', 19.13],
-			['FI-HCV-COMPRAS', 16.86],
-			['FI-HCV-VENTAS', 28.58],
-			['FI-HCV-VENTAS-REM', 8.21],
-			['HTE-TCC', 4.86],
-			['MM-ANULACION', 0.06],
-			['MM052', 2.69],
-			['MM056', 10.72],
-			['MM-CONSUMO-GRANOS', 0.17]
+                    	['FI-ANULACION', 1.63],
+			['FI-CCO-COMPRAS', 0.82],
+			['FI-CCO-VENTAS', 5.31],
+			['FI-HBC-LIQ', 20.03],
+			['FI-HCV-COMPRAS', 19.89],
+			['FI-HCV-VENTAS', 17.44],
+			['FI-HCV-VENTAS-REM', 8.58],
+			['HTE-TCC', 4.09],
+			['MM-ANULACION', 0.41],
+			['MM052', 8.17],
+			['MM056', 13.62],
+			['MM-CONSUMO-GRANOS', 0.00]
                 ],
                 type: 'donut',
 		labels: true
